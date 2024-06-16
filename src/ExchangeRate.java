@@ -10,7 +10,9 @@ public class ExchangeRate {
 
     public Currency getCurrentExchangeRate(String currencyFrom, String currencyTo) {
 
-        URI serviceURL = URI.create("https://v6.exchangerate-api.com/v6/a7d9d0e70db88132d53e2114/pair/" + currencyFrom + "/" + currencyTo);
+        String apiKey = "YOUR API KEY";
+
+        URI serviceURL = URI.create("https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + currencyFrom + "/" + currencyTo);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
