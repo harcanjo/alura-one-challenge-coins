@@ -1,2 +1,4 @@
-public record Currency(double usdValue, double arsValue, double brlValue, double copValue) {
+import com.google.gson.annotations.SerializedName;
+
+public record Currency(@SerializedName("conversion_rate") double conversionRate) {
 }
