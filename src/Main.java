@@ -92,13 +92,16 @@ public class Main {
             ExchangeRate exchangeRate = new ExchangeRate();
             Currency currentExchangeRate = exchangeRate.getCurrentExchangeRate(currencyfrom, currencyto);
             double currentConversion = currentExchangeRate.conversionRate();
+            DateConversionBR lastUpdateBR = new DateConversionBR();
+            String lastUpdateBRFormatted = lastUpdateBR.convertDateFromApi(currentExchangeRate.lastUpdate());
 
             System.out.println("Digite o valor que deseja converter: ");
             double valueToConvert = scanner.nextDouble();
 
             System.out.println("Valor " + valueToConvert +
                     " [" + currencyfrom.toUpperCase() + "] corresponde ao valor final de ==> " +
-                    (valueToConvert * currentConversion) + " [" + currencyto.toUpperCase()+ "] ");
+                    (valueToConvert * currentConversion) + " [" + currencyto.toUpperCase()+ "] de acordo com a última atualização em " +
+                    lastUpdateBRFormatted);
         }
     }
 }
